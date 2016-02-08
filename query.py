@@ -74,11 +74,19 @@ def get_brands_summary():
 
 # Part 2.5: Advanced and Optional
 def search_brands_by_name(mystr):
-    pass
+    
+    list_of_brands = Brand.query.filter(Brand.name.like('%'+mystr+'%')).all()
+    return list_of_brands
 
+# Design a function in python that takes in any string as parameter, and returns
+#  a list of objects that are brands whose name contains or is equal to the input string.
 
 def get_models_between(start_year, end_year):
-    pass
+    """Function takes in a start year and end year (two integers), and returns 
+    a list of objects that are models with years that fall between the start year and end year."""
+    
+    list_of_models = Models.query.filter(Model.year >= start_year, Model.year <= end_year).all()
+    return list_of_models
 
 # -------------------------------------------------------------------
 
